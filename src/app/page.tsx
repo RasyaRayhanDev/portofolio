@@ -223,6 +223,7 @@ export default function PortfolioPage() {
   const [selectedCertificate, setSelectedCertificate] =
     useState<Certificate | null>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedAchievement, setSelectedAchievement] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [projectFilter, setProjectFilter] = useState<"all" | "web" | "mobile">("all");
   const [techFilter, setTechFilter] = useState<string | null>(null);
@@ -575,6 +576,14 @@ export default function PortfolioPage() {
                 About
               </button>
               <button
+                onClick={() => scrollToSection("achievements")}
+                className={`hover:text-purple-500 transition-colors ${
+                  activeSection === "achievements" ? "text-purple-500" : ""
+                }`}
+              >
+                Achievements
+              </button>
+              <button
                 onClick={() => scrollToSection("projects")}
                 className={`hover:text-purple-500 transition-colors ${
                   activeSection === "projects" ? "text-purple-500" : ""
@@ -652,6 +661,17 @@ export default function PortfolioPage() {
                   }`}
                 >
                   About
+                </button>
+                <button
+                  onClick={() => {
+                    scrollToSection("achievements");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`text-left hover:text-purple-500 transition-colors ${
+                    activeSection === "achievements" ? "text-purple-500" : ""
+                  }`}
+                >
+                  Achievements
                 </button>
                 <button
                   onClick={() => {
@@ -943,6 +963,98 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="py-20">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-4xl font-bold mb-12 animate-slideInFromLeft">
+            Achievements
+          </h2>
+          <div 
+            onClick={() => setSelectedAchievement("/achievements/quality_restoration_20251215220959709.jpg")}
+            className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 cursor-pointer transform hover:scale-[1.02] hover:-translate-y-2"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              {/* Image */}
+              <div className="relative h-[400px] rounded-xl overflow-hidden group">
+                <Image
+                  src="/achievements/quality_restoration_20251215220959709.jpg"
+                  alt="Juara 1 Jagoan Hosting Infra Competition"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+              
+              {/* Content */}
+              <div className="space-y-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/20 rounded-full w-fit">
+                  <span className="text-2xl">🏆</span>
+                  <span className="text-yellow-400 font-semibold">Juara 1</span>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-purple-400">
+                  Jagoan Hosting Infra Competition
+                </h3>
+                
+                <p className="text-gray-300 leading-relaxed">
+                  Membuat Website sekolah dengan menambahkan fitur-fitur yang sebelumnya belum ada di sekolah. 
+                  Fitur-fiturnya yaitu <span className="text-purple-400 font-semibold">Tour</span> dan <span className="text-purple-400 font-semibold">Trial Class DTP</span>. 
+                  Para orang tua dapat menjelajahi sekolah melalui fitur Tour dan bisa mencoba DTP melalui Trial Class DTP.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Achievement Modal */}
+      {selectedAchievement && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedAchievement(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl max-h-[90vh] bg-gray-900 rounded-xl overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="p-8 flex flex-col md:flex-row gap-8">
+              <div className="relative w-full md:w-1/2 h-[500px] rounded-lg overflow-hidden">
+                <Image
+                  src={selectedAchievement}
+                  alt="Achievement"
+                  fill
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+              <div className="w-full md:w-1/2 space-y-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/20 rounded-full w-fit">
+                  <span className="text-2xl">🏆</span>
+                  <span className="text-yellow-400 font-semibold">Juara 1</span>
+                </div>
+                
+                <h3 className="text-3xl font-bold text-purple-400">
+                  Jagoan Hosting Infra Competition
+                </h3>
+                
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Membuat Website sekolah dengan menambahkan fitur-fitur yang sebelumnya belum ada di sekolah. 
+                  Fitur-fiturnya yaitu <span className="text-purple-400 font-semibold">Tour</span> dan <span className="text-purple-400 font-semibold">Trial Class DTP</span>. 
+                  Para orang tua dapat menjelajahi sekolah melalui fitur Tour dan bisa mencoba DTP melalui Trial Class DTP.
+                </p>
+              </div>
+            </div>
+            <button
+              className="absolute top-4 right-4 bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600 transition-colors"
+              onClick={() => setSelectedAchievement(null)}
+              aria-label="Close achievement preview"
+            >
+              <X size={24} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Projects Section */}
       <section id="projects" className="py-20">
