@@ -1037,7 +1037,7 @@ export default function PortfolioPage() {
                   src={selectedAchievement}
                   alt="Achievement"
                   fill
-                  className="object-contain"
+                  className="object-cover"
                   quality={100}
                 />
               </div>
