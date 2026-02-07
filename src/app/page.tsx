@@ -1032,7 +1032,7 @@ export default function PortfolioPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-8 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[90vh]">
-              <div className="relative w-full md:w-1/2 flex-shrink-0 h-[500px] rounded-lg overflow-hidden">
+              <div className="relative w-full md:w-1/2 flex-shrink-0 h-[400px] rounded-lg overflow-hidden">
                 <Image
                   src={selectedAchievement}
                   alt="Achievement"
@@ -1294,7 +1294,7 @@ export default function PortfolioPage() {
             <div className="p-8 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[90vh]">
               <div
                 className={`relative w-full md:w-1/2 flex-shrink-0 ${
-                  selectedProject.isMobile ? "h-[500px]" : "h-[350px]"
+                  selectedProject.isMobile ? "h-[400px]" : "h-[225px]"
                 } rounded-lg overflow-hidden`}
               >
                 <Image
