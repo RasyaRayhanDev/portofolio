@@ -159,7 +159,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
       }}
     >
       <div
-        className={`relative w-full mb-6 overflow-hidden rounded-lg flex-shrink-0 ${
+        className={`relative w-full mb-6 overflow-hidden rounded-lg flex-shrink-0 bg-gray-800 ${
           project.isMobile ? "h-[400px]" : "h-[225px]"
         }`}
       >
@@ -167,9 +167,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
           src={project.image}
           alt={project.title}
           fill
-          className={`object-contain transition-transform duration-300 hover:scale-110 ${
-            project.isMobile ? "object-contain" : "object-cover"
-          }`}
+          className="object-contain transition-transform duration-300 hover:scale-110"
         />
       </div>
       <div className="flex flex-col flex-grow">
@@ -989,12 +987,12 @@ export default function PortfolioPage() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               {/* Image */}
-              <div className="relative h-[400px] rounded-xl overflow-hidden group">
+              <div className="relative h-[400px] rounded-xl overflow-hidden group bg-gray-800">
                 <Image
                   src="/achievements/quality_restoration_20251215220959709.jpg"
                   alt="Juara 1 Jagoan Hosting Infra Competition"
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-contain transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
@@ -1032,12 +1030,12 @@ export default function PortfolioPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="p-8 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[90vh]">
-              <div className="relative w-full md:w-1/2 flex-shrink-0 h-[400px] rounded-lg overflow-hidden">
+              <div className="relative w-full md:w-1/2 flex-shrink-0 h-[400px] rounded-lg overflow-hidden bg-gray-800">
                 <Image
                   src={selectedAchievement}
                   alt="Achievement"
                   fill
-                  className="object-cover"
+                  className="object-contain"
                   quality={100}
                 />
               </div>
@@ -1293,7 +1291,7 @@ export default function PortfolioPage() {
           >
             <div className="p-8 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[90vh]">
               <div
-                className={`relative w-full md:w-1/2 flex-shrink-0 ${
+                className={`relative w-full md:w-1/2 flex-shrink-0 bg-gray-800 ${
                   selectedProject.isMobile ? "h-[400px]" : "h-[225px]"
                 } rounded-lg overflow-hidden`}
               >
@@ -1301,9 +1299,7 @@ export default function PortfolioPage() {
                   src={selectedProject.image}
                   alt={selectedProject.title}
                   fill
-                  className={`${
-                    selectedProject.isMobile ? "object-contain" : "object-cover"
-                  }`}
+                  className="object-contain"
                   quality={100}
                 />
               </div>
