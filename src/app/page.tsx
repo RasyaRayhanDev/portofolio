@@ -1018,8 +1018,8 @@ export default function PortfolioPage() {
             className="relative w-full max-w-5xl max-h-[90vh] bg-gray-900 rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-8 flex flex-col md:flex-row gap-8">
-              <div className="relative w-full md:w-1/2 h-[500px] rounded-lg overflow-hidden">
+            <div className="p-8 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[90vh]">
+              <div className="relative w-full md:w-1/2 flex-shrink-0 h-[500px] rounded-lg overflow-hidden">
                 <Image
                   src={selectedAchievement}
                   alt="Achievement"
@@ -1035,7 +1035,7 @@ export default function PortfolioPage() {
                 </div>
                 
                 <h3 className="text-3xl font-bold text-purple-400">
-                  Jagoan Hosting Infra Competition
+                  Jagoan Hosting Infra Competition Nasional
                 </h3>
                 
                 <p className="text-gray-300 text-lg leading-relaxed">
@@ -1046,7 +1046,7 @@ export default function PortfolioPage() {
               </div>
             </div>
             <button
-              className="absolute top-4 right-4 bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600 transition-colors"
+              className="absolute top-4 right-4 bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600 transition-colors z-10"
               onClick={() => setSelectedAchievement(null)}
               aria-label="Close achievement preview"
             >
@@ -1278,9 +1278,9 @@ export default function PortfolioPage() {
             className="relative w-full max-w-5xl max-h-[90vh] bg-gray-900 rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-8 flex flex-col md:flex-row gap-8">
+            <div className="p-8 flex flex-col md:flex-row gap-8 overflow-y-auto max-h-[90vh]">
               <div
-                className={`relative w-full md:w-1/2 ${
+                className={`relative w-full md:w-1/2 flex-shrink-0 ${
                   selectedProject.isMobile ? "h-[500px]" : "h-[350px]"
                 } rounded-lg overflow-hidden`}
               >
@@ -1337,7 +1337,7 @@ export default function PortfolioPage() {
               </div>
             </div>
             <button
-              className="absolute top-4 right-4 bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600 transition-colors"
+              className="absolute top-4 right-4 bg-purple-500 text-white p-2 rounded-full hover:bg-purple-600 transition-colors z-10"
               onClick={() => setSelectedProject(null)}
               aria-label="Close project details"
             >
