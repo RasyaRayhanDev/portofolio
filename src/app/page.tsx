@@ -471,6 +471,19 @@ export default function PortfolioPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedProject || selectedCertificate || selectedAchievement) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedProject, selectedCertificate, selectedAchievement]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
